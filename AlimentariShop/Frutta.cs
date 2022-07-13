@@ -9,11 +9,11 @@ namespace AlimentariShop
     internal class Frutta : Prodotto
     {
 
-        private double peso;
+        public double Peso;
 
         public Frutta(string nome, string descrizione, double peso, double prezzo, int iva) : base(nome, descrizione, prezzo, iva)
         {
-
+            this.Peso = peso;
         }
 
     }

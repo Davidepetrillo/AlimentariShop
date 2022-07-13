@@ -10,7 +10,7 @@ foreach(Prodotto prodotto in laMiaListaDiProdotti)
     long codice = random.Next(10000);
 }
 
-Prodotto Cereali = new Prodotto("Cereali", "Cereali a base di miele e cannella ", 1.99, 17);
+Prodotto Cereali = new Prodotto("Cereali", "Cereali a base di miele e cannella ", 1.99, 17, 100);
 laMiaListaDiProdotti.Add(Cereali);
 Frutta Banana = new Frutta("Banana", "Banane coltivate in Brasile e prodotte in Guatemala", 2, 1.69, 19);
 laMiaListaDiProdotti.Add(Banana);
@@ -32,7 +32,25 @@ foreach(Prodotto prodotto in laMiaListaDiProdotti)
         Console.WriteLine("Codice: " + prodotto.codice);
         Console.WriteLine("Nome: " + prodotto.nome);
         Console.WriteLine("Descrizione: " + prodotto.descrizione);
-        Console.WriteLine($"Prezzo: {prodotto.prezzo} euro");
+
+    if(prodotto == Tonno)
+    {
+        Console.WriteLine($"Numero scatole: {Tonno.numeroScatole}");
+        Console.WriteLine($"Peso: {Tonno.peso}gr/scatola");
+        Console.WriteLine($"Scadenza: {Tonno.scadenza}");
+    }
+    if (prodotto == Banana)
+    {
+        Console.WriteLine($"Peso: {Banana.Peso}kg");
+    }
+    if(prodotto == Lete)
+    {
+        Console.WriteLine($"Numero bottiglie: {Lete.numeroBottiglie}");
+        Console.WriteLine($"Litri: {Lete.litri}/bottiglia");
+        Console.WriteLine($"Materiale bottiglie: {Lete.materialeBottiglie}");
+    }
+
+    Console.WriteLine($"Prezzo: {prodotto.prezzo} euro");
         Console.WriteLine($"IVA: {prodotto.iva}%");
         Console.WriteLine($"Prezzo finale: {prodotto.PrezzoPiuIva(prodotto.prezzo, prodotto.iva)} euro");
         Console.WriteLine($"Codice esteso: {prodotto.PadLeft()}");

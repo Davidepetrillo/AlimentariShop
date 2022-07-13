@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlimentariShop
 {
-    internal class CiboInScatola : Prodotto
+    public class CiboInScatola : Prodotto
     {
         public double peso;
         public string scadenza;
