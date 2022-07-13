@@ -18,7 +18,7 @@ Acqua Lete = new Acqua("Lete", "L’acqua che il tuo corpo vuole", 2.19, 18, 6, 
 laMiaListaDiProdotti.Add(Lete);
 CiboInScatola Tonno = new CiboInScatola("Tonno", "Nostromo - Tonno Leggero all'Olio di Oliva con -60% di Grassi, Qualità Pinne Gialle, Senza Conservanti", 6, 60, 2.99, 8, "12/09/2023");
 laMiaListaDiProdotti.Add(Tonno);
-
+// Affettati ProsciuttoCrudo = new Affettati("Prosciutto Crudo San Daniele",)...
 
 void Identificativo(long codice, string nome)
 {
