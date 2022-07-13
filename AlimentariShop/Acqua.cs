@@ -14,7 +14,7 @@ namespace AlimentariShop
         public double ph;
         public string sorgente;
 
-        public Acqua(string nome, string descrizione, double prezzo, int iva, int numeroBottiglie, double litri, string materiale, double ph, string sorgente) : base(nome, descrizione, prezzo, iva)
+        public Acqua(string nome, string descrizione, double prezzo, int iva, int numeroBottiglie, double litri, string materiale, double ph, string sorgente, int quantitaAMagazzino) : base(nome, descrizione, prezzo, iva, quantitaAMagazzino)
         {
             this.numeroBottiglie = numeroBottiglie;
             this.litri = litri;

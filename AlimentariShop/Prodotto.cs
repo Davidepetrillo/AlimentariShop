@@ -13,7 +13,7 @@ namespace AlimentariShop
         public string descrizione { get; set; }
         public double prezzo { get; set; }
         public int iva { get; set; }
-        public int quantitaAMagazzino { get; set; }
+        public int QuantitaAMagazzino { get; set; }
 
         public Prodotto(string nome, string descrizione, double prezzo, int iva, int quantitaAMagazzino)
         {
@@ -38,6 +38,8 @@ namespace AlimentariShop
             {
                 throw new Exception("Si prega di inserire un numero di unità positivo");
             }
+
+            this.QuantitaAMagazzino = quantitaAMagazzino;
 
             Random random = new Random();
             codice = random.Next(1000);
@@ -66,6 +68,26 @@ namespace AlimentariShop
             return codiceString.PadLeft(8, zero);
         }
 
+        public int Rifornimento(int quantitaDaRifornire)
+        {
+            QuantitaAMagazzino = QuantitaAMagazzino + quantitaDaRifornire;
+            return QuantitaAMagazzino;
+
+        }
+
+        public int Acquisto(int quantitaDaAcquistare)
+        {
+            if (quantitaDaAcquistare > QuantitaAMagazzino)
+            {
+                throw new Exception("Mi dispiace ma il nostro negozio non dispone di tutta questa quantità");
+            }
+            else
+            {
+                QuantitaAMagazzino = QuantitaAMagazzino -  quantitaDaAcquistare;
+            }
+
+            return QuantitaAMagazzino;
+        }
 
     }
 }
