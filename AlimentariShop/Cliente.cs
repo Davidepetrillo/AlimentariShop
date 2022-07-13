@@ -11,12 +11,10 @@ namespace AlimentariShop
         public string Nome { get; set; }
         public string Cognome { get; set; }
         public string CodiceFiscale { get; set; }
-        public string MetodoDiPagamento { get; set; }
 
-        public Cliente(string nome, string cognome, string codiceFiscale, string metodoDiPagamento) : base(nome, cognome, codiceFiscale)
+        public Cliente(string nome, string cognome, string codiceFiscale) : base(nome, cognome, codiceFiscale)
         {
            
-            this.MetodoDiPagamento = metodoDiPagamento;
         }
     }
 }

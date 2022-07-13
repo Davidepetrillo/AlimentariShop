@@ -11,7 +11,7 @@ namespace AlimentariShop
 
         public double Peso;
 
-        public Frutta(string nome, string descrizione, double peso, double prezzo, int iva, int quantitaAMagazzino) : base(nome, descrizione, prezzo, iva, quantitaAMagazzino)
+        public Frutta(string nome, string descrizione, double peso, double prezzo, int iva, string type, int quantitaAMagazzino) : base(nome, descrizione, prezzo, iva, type, quantitaAMagazzino)
         {
             this.Peso = peso;
         }

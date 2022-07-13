@@ -13,7 +13,7 @@ namespace AlimentariShop
         public int numeroScatole;
 
         // con 'base' stiamo chiamando il costruttore della classe prodotto (costruttore della classe base)
-        public CiboInScatola(string nome, string descrizione, int numeroScatole, double peso, double prezzo, int iva, string scadenza, int quantitaAMagazzino) : base(nome, descrizione, prezzo, iva, quantitaAMagazzino)
+        public CiboInScatola(string nome, string descrizione, int numeroScatole, double peso, double prezzo, int iva, string type, string scadenza, int quantitaAMagazzino) : base(nome, descrizione, prezzo, iva, type, quantitaAMagazzino)
         {
             this.peso = peso;
             this.scadenza = scadenza;
