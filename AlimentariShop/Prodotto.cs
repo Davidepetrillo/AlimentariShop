@@ -9,7 +9,7 @@ namespace AlimentariShop
     public class Prodotto
     {
         public long codice;
-        public string nome { get; set; }
+        public string Nome { get; set; }
         public string descrizione { get; set; }
         public double prezzo { get; set; }
         public int iva { get; set; }
@@ -18,7 +18,7 @@ namespace AlimentariShop
 
         public Prodotto(string nome, string descrizione, double prezzo, int iva, string type, int quantitaAMagazzino)
         {
-            this.nome = nome;
+            this.Nome = nome;
             this.descrizione = descrizione;
 
             if (prezzo <= 0)
@@ -41,9 +41,7 @@ namespace AlimentariShop
             }
 
             this.QuantitaAMagazzino = quantitaAMagazzino;
-
             this.Type = type;
-
             Random random = new Random();
             codice = random.Next(1000);
         }
@@ -71,26 +69,7 @@ namespace AlimentariShop
             return codiceString.PadLeft(8, zero);
         }
 
-        public int Rifornimento(int quantitaDaRifornire)
-        {
-            QuantitaAMagazzino = QuantitaAMagazzino + quantitaDaRifornire;
-            return QuantitaAMagazzino;
-
-        }
-
-        public int Acquisto(int quantitaDaAcquistare)
-        {
-            if ((quantitaDaAcquistare < 0) || (quantitaDaAcquistare > QuantitaAMagazzino))
-            {
-                throw new Exception("Mi dispiace ma l'operazione non è disponibile");
-            }
-            else
-            {
-                QuantitaAMagazzino = QuantitaAMagazzino -  quantitaDaAcquistare;
-            }
-
-            return QuantitaAMagazzino;
-        }
+        
 
     }
 }

@@ -5,6 +5,7 @@ Proprietario nuovoProprietario = new Proprietario("Davide", "Petrillo", "PTRDVD9
 List<Prodotto> laMiaListaDiProdotti = new List<Prodotto>();
 List<Cliente> listaClienti = new List<Cliente>();
 
+
 foreach(Prodotto prodotto in laMiaListaDiProdotti)
 {
     Random random = new Random();
@@ -19,6 +20,10 @@ Acqua Lete = new Acqua("Lete", "L’acqua che il tuo corpo vuole", 2.19, 18,"acq
 laMiaListaDiProdotti.Add(Lete);
 CiboInScatola Tonno = new CiboInScatola("Tonno", "Nostromo - Tonno Leggero all'Olio di Oliva con -60% di Grassi, Qualità Pinne Gialle, Senza Conservanti", 6, 60, 2.99, 22, "cibo in scatola", "12/09/2023",40);
 laMiaListaDiProdotti.Add(Tonno);
+
+
+Movimenti movimento = new Movimenti(2.45, 3.19, 0.74, Banana);
+
 
 
 void Identificativo(long codice, string nome)
@@ -60,12 +65,14 @@ if (sceltaIniziale == 1)
 
             for(int i = 0; i < laMiaListaDiProdotti.Count; i++)
             {
-                if (laMiaListaDiProdotti[i].nome == sceltaProdottoRifornimento)
+                if (laMiaListaDiProdotti[i].Nome == sceltaProdottoRifornimento)
                 {
 
                     Console.Write("Inserire la quantità da rifornire :");
                     int quantitaRifornimento = int.Parse(Console.ReadLine());
-                    laMiaListaDiProdotti[i].Rifornimento(quantitaRifornimento);
+
+                    movimento.Rifornimento(laMiaListaDiProdotti[i], quantitaRifornimento);
+                    //laMiaListaDiProdotti[i].Rifornimento(quantitaRifornimento);
                     sceltaProdottoTrovata = true;
 
                     Console.WriteLine();
@@ -141,12 +148,16 @@ else if (sceltaIniziale == 2)
 
         for (int i = 0; i < laMiaListaDiProdotti.Count; i++)
         {
-            if (laMiaListaDiProdotti[i].nome == sceltaProdottoDaAcquistare)
+            if (laMiaListaDiProdotti[i].Nome == sceltaProdottoDaAcquistare)
             {
 
                 Console.Write("Inserire la quantità che si desidera acquistare :");
                 int quantitaAcquisto = int.Parse(Console.ReadLine());
-                laMiaListaDiProdotti[i].Acquisto(quantitaAcquisto);
+
+                movimento.Acquisto(laMiaListaDiProdotti[i], quantitaAcquisto);
+
+                // laMiaListaDiProdotti[i].Acquisto(quantitaAcquisto);
+
                 sceltaProdottoTrovata = true;
                 double prezzoPerIlCliente = laMiaListaDiProdotti[i].PrezzoPiuIva(laMiaListaDiProdotti[i].prezzo, laMiaListaDiProdotti[i].iva);
                 double prezzoPerIlClienteFinale = prezzoPerIlCliente * quantitaAcquisto;
@@ -168,12 +179,12 @@ else if (sceltaIniziale == 2)
                     Console.WriteLine();
                     Console.WriteLine("------------------------ Prodotto -----------------------");
                     Console.WriteLine("Codice: " + laMiaListaDiProdotti[i].codice);
-                    Console.WriteLine("Nome: " + laMiaListaDiProdotti[i].nome);
+                    Console.WriteLine("Nome: " + laMiaListaDiProdotti[i].Nome);
                     Console.WriteLine($"Prezzo: {laMiaListaDiProdotti[i].prezzo} euro");
                     Console.WriteLine($"IVA: {laMiaListaDiProdotti[i].iva}%");
                     Console.WriteLine($"Prezzo finale: {laMiaListaDiProdotti[i].PrezzoPiuIva(laMiaListaDiProdotti[i].prezzo, laMiaListaDiProdotti[i].iva)} euro");
                     Console.WriteLine($"Codice esteso: {laMiaListaDiProdotti[i].PadLeft()}");
-                    Identificativo(laMiaListaDiProdotti[i].codice, laMiaListaDiProdotti[i].nome);
+                    Identificativo(laMiaListaDiProdotti[i].codice, laMiaListaDiProdotti[i].Nome);
                     Console.WriteLine("PREZZO : " + prezzoPerIlClienteFinale + "euro");
                 }
             }
@@ -243,7 +254,7 @@ else if (sceltaIniziale == 2)
         {
             Console.WriteLine("----- Prodotto -------");
             Console.WriteLine("Codice: " + prodotto.codice);
-            Console.WriteLine("Nome: " + prodotto.nome);
+            Console.WriteLine("Nome: " + prodotto.Nome);
             Console.WriteLine("Descrizione: " + prodotto.descrizione);
 
             if (prodotto.Type == "cibo in scatola")
@@ -271,7 +282,7 @@ else if (sceltaIniziale == 2)
             Console.WriteLine($"Prezzo finale: {prodotto.PrezzoPiuIva(prodotto.prezzo, prodotto.iva)} euro");
             Console.WriteLine($"Codice esteso: {prodotto.PadLeft()}");
             Console.WriteLine($"Categoria, {prodotto.Type}");
-            Identificativo(prodotto.codice, prodotto.nome);
+            Identificativo(prodotto.codice, prodotto.Nome);
             Console.WriteLine("------------------");
         }
 
